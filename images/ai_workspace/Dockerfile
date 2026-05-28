@@ -79,7 +79,10 @@ SHELL ["/bin/bash", "-lc"]
 # -----------------------------------------------------------------------------
 # oh-my-zsh + plugins (zsh-autosuggestions, zsh-syntax-highlighting)
 # -----------------------------------------------------------------------------
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended \
+RUN curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh \
+        -o /tmp/ohmyzsh-install.sh \
+    && sh /tmp/ohmyzsh-install.sh "" --unattended \
+    && rm /tmp/ohmyzsh-install.sh \
     && git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions \
         "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" \
     && git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting \
