@@ -1,10 +1,9 @@
 ## ============================================================================
-## .zshrc baked into ai_workspace base image.
+## .zshrc for claude_worker container
 ## Loaded for the non-root `worker` user. Sets up oh-my-zsh + plugins and
 ## sources every language/runtime manager installed in the image.
-##
-## Downstream images may overwrite this file to add their own aliases.
 ## ============================================================================
+
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -41,6 +40,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias lg=lazygit
+
+# ---------- Claude Code ----------
+alias yolo='claude --dangerously-skip-permissions'
+
 
 # ---------- zoxide ----------
 eval "$(zoxide init zsh)"
