@@ -48,7 +48,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libicu-dev \
         python3 python3-pip \
         golang-go \
-        procps htop file tree man-db bash-completion \
+        lazygit bat gh glab fzf zoxide eza lsd starship \
+        procps htop btop file tree man-db bash-completion \
         net-tools iproute2 dnsutils iputils-ping netcat-openbsd telnet \
     && locale-gen en_US.UTF-8 \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \

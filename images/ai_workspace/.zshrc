@@ -40,3 +40,10 @@ export DOTNET_NOLOGO=1
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# ---------- zoxide ----------
+eval "$(zoxide init zsh)"
+
+# ---------- starship ----------
+export STARSHIP_CONFIG=$HOME/.config/zsh/starship/starship.toml
+eval "$(starship init zsh)"
