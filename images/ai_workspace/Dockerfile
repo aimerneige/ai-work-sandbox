@@ -30,7 +30,7 @@ ARG APT_MIRROR=http://mirrors.huaweicloud.com/ubuntu/
 
 ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8 \
-    TZ=Asia/Shanghai
+    TZ=UTC
 
 # -----------------------------------------------------------------------------
 # Base system packages
