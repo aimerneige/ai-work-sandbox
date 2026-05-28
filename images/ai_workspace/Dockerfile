@@ -40,17 +40,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         git openssh-client openssh-server \
         zsh bash less vim tmux jq ripgrep fd-find \
         unzip xz-utils zip tar gzip \
-        build-essential pkg-config make cmake gdb \
+        build-essential pkg-config make cmake gdb clang lldb ninja-build \
         libssl-dev libffi-dev libreadline-dev libsqlite3-dev libbz2-dev \
         zlib1g-dev liblzma-dev libncurses-dev libxml2-dev libxslt1-dev \
+        libpq-dev libcurl4-openssl-dev libonig-dev libexpat1-dev \
+        libpng-dev libjpeg-dev libtiff-dev libwebp-dev libfreetype-dev libgmp-dev \
         bison autoconf automake libtool \
         bsdmainutils \
         libicu-dev \
         python3 python3-pip \
-        golang-go \
-        lazygit bat gh glab fzf zoxide eza lsd starship \
-        procps htop btop file tree man-db bash-completion \
+        golang-go openjdk-17-jdk-headless ruby \
+        lazygit bat gh glab fzf zoxide eza lsd starship ffmpeg \
+        httpie parallel moreutils entr shellcheck yamllint \
+        procps htop btop file tree man-db bash-completion strace lsof \
         net-tools iproute2 dnsutils iputils-ping netcat-openbsd telnet \
+        postgresql-client sqlite3 redis-tools \
     && locale-gen en_US.UTF-8 \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && rm -rf /var/lib/apt/lists/*

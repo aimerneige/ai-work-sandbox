@@ -40,6 +40,7 @@ export DOTNET_NOLOGO=1
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lg=lazygit
 
 # ---------- zoxide ----------
 eval "$(zoxide init zsh)"
