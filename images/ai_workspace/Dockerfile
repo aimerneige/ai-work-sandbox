@@ -26,6 +26,7 @@ ARG USER_GID=1000
 ARG GO_VERSION=1.26.3
 ARG PYTHON_VERSION=3.14.4
 ARG DOTNET_CHANNEL=10.0
+ARG APT_MIRROR=http://mirrors.huaweicloud.com/ubuntu/
 
 ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8 \
@@ -34,6 +35,7 @@ ENV LANG=en_US.UTF-8 \
 # -----------------------------------------------------------------------------
 # Base system packages
 # -----------------------------------------------------------------------------
+RUN sed -i "s@http://archive.ubuntu.com/ubuntu/@${APT_MIRROR}@g; s@http://security.ubuntu.com/ubuntu/@${APT_MIRROR}@g; s@http://ports.ubuntu.com/ubuntu-ports/@${APT_MIRROR}@g" /etc/apt/sources.list.d/ubuntu.sources
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates curl wget gnupg lsb-release software-properties-common \
         sudo locales tzdata \
