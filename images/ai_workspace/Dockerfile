@@ -134,6 +134,7 @@ RUN curl -fsSL https://dot.net/v1/dotnet-install.sh -o /tmp/dotnet-install.sh \
 # Default shell experience. Downstream images may overwrite this file.
 # -----------------------------------------------------------------------------
 COPY --chown=${USERNAME}:${USERNAME} .zshrc ${HOME}/.zshrc
+COPY --chown=${USERNAME}:${USERNAME} .starship.toml ${HOME}/.starship.toml
 
 # Pre-create writable mount points so bind-mounts at runtime never collide
 # with image-time content and ownership stays correct.

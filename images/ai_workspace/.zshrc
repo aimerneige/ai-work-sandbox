@@ -45,5 +45,5 @@ alias l='ls -CF'
 eval "$(zoxide init zsh)"
 
 # ---------- starship ----------
-export STARSHIP_CONFIG=$HOME/.config/zsh/starship/starship.toml
+export STARSHIP_CONFIG=$HOME/.starship.toml
 eval "$(starship init zsh)"
