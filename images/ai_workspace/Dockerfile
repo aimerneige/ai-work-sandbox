@@ -35,7 +35,9 @@ ENV LANG=en_US.UTF-8 \
 # -----------------------------------------------------------------------------
 # Base system packages
 # -----------------------------------------------------------------------------
-RUN sed -i "s@http://archive.ubuntu.com/ubuntu/@${APT_MIRROR}@g; s@http://security.ubuntu.com/ubuntu/@${APT_MIRROR}@g; s@http://ports.ubuntu.com/ubuntu-ports/@${APT_MIRROR}@g" /etc/apt/sources.list.d/ubuntu.sources
+RUN if [ -n "$APT_MIRROR" ]; then \
+        sed -i "s@http://archive.ubuntu.com/ubuntu/@${APT_MIRROR}@g; s@http://security.ubuntu.com/ubuntu/@${APT_MIRROR}@g; s@http://ports.ubuntu.com/ubuntu-ports/@${APT_MIRROR}@g" /etc/apt/sources.list.d/ubuntu.sources; \
+    fi
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates curl wget gnupg lsb-release software-properties-common \
         sudo locales tzdata \
