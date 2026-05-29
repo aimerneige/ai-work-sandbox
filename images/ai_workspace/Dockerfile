@@ -103,13 +103,13 @@ RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | 
 
 # -----------------------------------------------------------------------------
 # gvm + Go ${GO_VERSION}
-# Install directly from the official prebuilt binary (-B) to skip the
-# source-compile + bootstrap dance. Supported archs: amd64, arm64, 386, armv6l.
+# Source-compile using the system-installed Go as the bootstrap compiler.
 # -----------------------------------------------------------------------------
 RUN bash -c "curl -fsSL https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | bash" \
     && bash -lc " \
         source \"$HOME/.gvm/scripts/gvm\" \
-        && gvm install go${GO_VERSION} -B \
+        && export GOROOT_BOOTSTRAP=\$(go env GOROOT) \
+        && gvm install go${GO_VERSION} \
         && gvm use go${GO_VERSION} --default \
     "
 
